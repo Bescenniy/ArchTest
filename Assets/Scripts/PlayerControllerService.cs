@@ -7,7 +7,9 @@ public class PlayerControllerService : IPlayerControllerService
 {
     private readonly InputKeyboard _inputKeyboard;
     public PlayerControllerService(InputKeyboard inputKeyboard)
-    {_inputKeyboard = inputKeyboard;}
+    {
+        _inputKeyboard = inputKeyboard;
+    }
 
     public float GetAxisRowX()
     {

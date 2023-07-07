@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    [SerializeField] Character _character;
-    private int speedForce = 10;
+   private int _speedForce = 10;
 
     private IPlayerControllerService _playerControllerService;
     public void Inject(IPlayerControllerService playerControllerService)
-    { _playerControllerService = playerControllerService; }
+    {
+        _playerControllerService = playerControllerService; 
+    }
     private void Update()
     {
-        Move();
+      Move();
     }
 
     public void Move()
@@ -21,7 +22,6 @@ public class Character : MonoBehaviour
         float y = _playerControllerService.GetAxisRowY();
         Debug.Log($"input keyboard {x}:{y}");
         Vector3 newDirection = new Vector3(x, 0, y);
-        _character.transform.position = newDirection.normalized * speedForce * Time.deltaTime;
-        
+        transform.position = newDirection.normalized * _speedForce * Time.deltaTime;       
     }
 }
